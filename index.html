@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stayl.css">
+    <title>web color</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="titel">Pilih warna</div>
+        <div class="box">
+            <div class="cirkrl red"></div>
+            <div class="cirkrl kuning"></div>
+            <div class="cirkrl hijau"></div>
+            <div class="cirkrl hitam"></div>
+            <div class="cirkrl ungu"></div>
+
+        </div>
+        <button id="btn-rilode" class="kembali">Got it</button>
+
+    </div>
+    <script>
+        const circles = document.querySelectorAll(".cirkrl");
+        const judul = document.querySelector(".titel");
+
+        circles.forEach(cirkrl => {
+            cirkrl.addEventListener("click", ({ target }) => {
+                const { backgroundColor } = getComputedStyle(target)
+                document.body.style.backgroundColor = backgroundColor
+                if (backgroundColor === "rgb(0, 0, 0)") {
+                    judul.style.color = "white";
+                } else {
+                    judul.style.color = "black";
+                }
+            })
+        })
+
+        document.getElementById("btn-rilode").onclick = function () {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>
